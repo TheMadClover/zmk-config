@@ -24,6 +24,29 @@
         };
     };
 
+    behaviors {
+        TD01: TD01 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD01";
+            #binding-cells = <0>;
+            bindings = <&mt LALT ESCAPE>, <&kp LMETA>;
+        };
+
+        TD02: TD02 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD02";
+            #binding-cells = <0>;
+            bindings = <&lt 3 BACKSPACE>, <&kp BACKSPACE>;
+        };
+
+        TD04: TD04 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD04";
+            #binding-cells = <0>;
+            bindings = <&mt F F>, <&kp G>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -35,10 +58,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&kp TAB         &kp Q  &kp W  &kp E      &kp R  &kp T        &kp Y          &kp U  &kp I      &kp O    &kp P     &kp BSPC
-&mt LGUI MINUS  &kp A  &kp S  &kp D      &kp F  &kp G        &kp H          &kp J  &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LSHFT       &kp Z  &kp X  &kp C      &kp V  &kp B        &kp N          &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp ESC
-                              &kp LCTRL  &mo 1  &kp SPACE    &mt RSHFT RET  &mo 2  &kp RALT
+&kp TAB         &kp Q  &kp W  &kp E  &kp R                 &kp T          &kp Y        &kp U  &kp I             &kp O    &kp P     &kp BSPC
+&mt LGUI MINUS  &kp A  &kp S  &kp D  &kp F                 &kp G          &kp H        &kp J  &kp K             &kp L    &kp SEMI  &kp SQT
+&kp LSHFT       &kp Z  &kp X  &kp C  &kp V                 &kp B          &kp N        &kp M  &kp COMMA         &kp DOT  &kp FSLH  &kp ESC
+                              &TD01  &mt LEFT_CONTROL TAB  &lt 1 SPACE    &lt 2 ENTER  &TD02  &mt LEFT_ALT DEL
             >;
         };
 
@@ -50,10 +73,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp ESC          &kp PAGE_UP   &kp PAGE_DOWN   &kp UP         &kp HOME          &kp END          &kp PLUS      &kp N7        &kp N8           &kp N9  &kp KP_MULTIPLY  &trans
-&kp EXCLAMATION  &kp AT_SIGN   &kp LEFT_ARROW  &kp DOWN       &kp RIGHT         &kp K_APP        &kp KP_MINUS  &kp N4        &kp N5           &kp N6  &kp KP_DIVIDE    &kp PRINTSCREEN
-&trans           &kp ASTERISK  &kp POUND       &kp LESS_THAN  &kp GREATER_THAN  &shut_it_down    &kp KP_DOT    &kp NUMBER_1  &kp N2           &kp N3  &kp KP_DOT       &kp EQUAL
-                                               &trans         &trans            &trans           &trans        &trans        &kp KP_NUMBER_0
+&trans  &kp F1        &kp F2        &kp F3        &kp F4             &kp F5    &kp F6        &kp F7     &kp F8            &kp F9             &kp F10       &trans
+&trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4       &kp N5    &kp NUMBER_6  &kp N7     &kp NUMBER_8      &kp NUMBER_9       &kp NUMBER_0  &trans
+&trans  &kp PIPE      &none         &none         &kp LA(LS(LC(B)))  &none     &kp MINUS     &kp EQUAL  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp APOS      &trans
+                                    &trans        &trans             &trans    &trans        &trans     &trans
             >;
         };
 
@@ -65,29 +88,31 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp TAB    &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &kp LEFT_BRACE        &kp F1  &kp F2   &kp F3   &kp F4   &kp RIGHT_BRACE
-&kp LCTRL  &trans    &trans  &trans    &trans    &trans       &kp LEFT_PARENTHESIS  &kp F5  &kp F6   &kp F7   &kp F8   &kp RIGHT_PARENTHESIS
-&kp CAPS   &trans    &trans  &trans    &trans    &trans       &kp LBKT              &kp F9  &kp F10  &kp F11  &kp F12  &kp RBKT
-                             &trans    &trans    &trans       &trans                &trans  &trans
+&trans  &kp TILDE  &kp GRAVE  &kp CAPS  &kp LA(F4)  &kp K_CMENU    &kp C_VOLUME_UP  &kp C_VOLUME_DOWN  &kp PRINTSCREEN  &kp F11               &kp F12                &trans
+&trans  &kp EXCL   &kp AT     &kp HASH  &kp DOLLAR  &kp PERCENT    &kp CARET        &kp AMPERSAND      &kp ASTERISK     &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans
+&trans  &trans     &trans     &trans    &trans      &trans         &kp UNDER        &kp PLUS           &kp LEFT_BRACE   &kp RIGHT_BRACE       &kp DOUBLE_QUOTES      &trans
+                              &trans    &trans      &trans         &trans           &trans             &trans
             >;
         };
 
-        layer_3 {
+        nav_bt {
             bindings = <
-&kp TAB    &kp EXCL    &kp AT_SIGN   &kp HASH      &kp DLLR  &kp PERCENT    &kp CARET       &kp AMPERSAND  &kp ASTERISK      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans
-&kp CARET  &trans      &trans        &trans        &trans    &trans         &kp MINUS       &kp EQUAL      &kp LEFT_BRACKET  &kp RIGHT_BRACKET     &kp BACKSLASH          &kp GRAVE
-&kp CAPS   &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &trans    &trans         &kp UNDERSCORE  &kp PLUS       &kp LEFT_BRACE    &kp RIGHT_BRACE       &kp PIPE               &kp TILDE
-                                     &trans        &trans    &trans         &trans          &trans         &trans
+&bt BT_SEL 0  &kp HOME        &kp PAGE_UP     &kp PG_UP  &kp END          &none     &none   &none         &none   &none  &to 4  &trans
+&bt BT_SEL 1  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP     &kp RIGHT_ARROW  &trans    &none   &kp LEFT_WIN  &none   &none  &none  &trans
+&bt BT_NXT    &none           &none           &none      &trans           &trans    &none   &none         &none   &none  &none  &bt BT_CLR
+                                              &trans     &trans           &trans    &trans  &trans        &trans
+            >;
+        };
+
+        factorio {
+            bindings = <
+&trans  &kp TAB    &kp Q  &kp W      &kp E      &kp R        &kp PLUS         &kp N7    &kp N8  &kp N9  &kp BSPC    &trans
+&trans  &kp LC(N)  &kp A  &kp S      &kp D      &TD04        &kp MINUS        &kp N4    &kp N5  &kp N6  &kp DELETE  &trans
+&trans  &kp Z      &kp X  &kp C      &kp V      &kp M        &kp KP_NUMBER_0  &kp N1    &kp N2  &kp N3  &to 0       &trans
+                          &kp ENTER  &kp LSHFT  &kp LCTRL    &kp ENTER        &kp LGUI  &trans
             >;
         };
     };
 
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-
-        Tri {
-            if-layers = <1 2>;
-            then-layer = <3>;
-        };
-    };
+    conditional_layers { compatible = "zmk,conditional-layers"; };
 };
