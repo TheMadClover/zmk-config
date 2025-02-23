@@ -47,3 +47,10 @@ include:
     shield: goos_right
   - board: nice_nano_v2
     shield: settings_reset
+
+# Sweep
+
+  - board: nice_nano_v2
+    shield: cradio_left
+  - board: nice_nano_v2
+    shield: cradio_right
