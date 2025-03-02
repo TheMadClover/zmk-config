@@ -101,7 +101,7 @@
         //│  +       │  |       │  @       │  /       │  %       │   │  TogCol  │  \       │  &       │  ?       │  !       │
             &kp PLUS   &kp PIPE   &kp AT     &kp FSLH   &kp PRCNT      &tog COL   &kp BSLH   &kp AMPS   &kp QMARK  &kp EXCL
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &mo NAV    &kp SPACE      &kp LSHFT  &mo SYM
+                                             &trans     &trans         &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
