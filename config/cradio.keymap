@@ -110,10 +110,10 @@
             bindings = <
         //╭───────────────┬───────────────┬───────────────┬──────────┬───────────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│  TAB          │  WinSwap      │               │          │  Vol+         │   │  PntScn  │  Home    │  Up      │  End     │  Delete  │
-            &kp TAB   &kp LC(LA(TAB)) &kp LC(LS(TAB)) &kp LC(TAB) &kp C_VOL_UP             &kp PSCRN  &HOME      &kp UP     &kp END    &kp DEL
+            &kp TAB   &kp LC(LA(TAB)) &kp LC(LS(TAB)) &kp LC(TAB) &kp C_VOL_UP             &kp PSCRN  &kp HOME   &kp UP     &kp END    &kp DEL
         //├───────────────┼───────────────┼───────────────┼──────────┼───────────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  OSS             OSC          │  OSA          │  OSG     │  Vol-         │   │  CapLock │  Left    │  Down    │  Right   │  BkSpc   │
-            &sk LSHFT       &sk LCTRL       &sk LALT        &sk LGUI   &kp C_VOL_DN        &kp CAPS   &kp LEFT   &kp DOWN   &kp RIGHT  &bootloader
+        //│  OSS             OSC          │  OSA          │  OSG     │  Vol-         │   │  CapLock │  Left    │  Down    │  Right   │ Backspace│
+            &sk LSHFT       &sk LCTRL       &sk LALT        &sk LGUI   &kp C_VOL_DN        &kp CAPS   &kp LEFT   &kp DOWN   &kp RIGHT  &kp BSPC
         //├───────────────┼───────────────┼───────────────┼──────────┼───────────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  SelWordLt    │  SelWordRt    │  BACK         │   FWD    │  Play/Pause   │   │          │  PageDown│  PageUp  │  CtlLayer│  Enter   │
           &kp LS(LC(LEFT)) &kp LS(LC(RIGHT)) &kp LA(LEFT) &kp LA(RIGHT) &kp C_PP           &none      &kp PG_DN  &kp PG_UP  &mo CTL    &kp ENTER
