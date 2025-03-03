@@ -35,6 +35,16 @@
         };
     };
 */
+    macros {
+        m_rtb: m_rtb {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &tog GAM>
+                , <&macro_tap &tog CTL>
+                ;
+        };
+    };
 
     conditional_layers {
         compatible = "zmk,conditional-layers";
@@ -47,8 +57,8 @@
     combos {
         compatible = "zmk,combos";
 
-        ToggleQty {
-            bindings = <&tog GAM>;
+        combo_rtb {
+            bindings = <&m_rtb>;
             key-positions = <9 29>;
         };
     };
@@ -115,8 +125,8 @@
         //│  OSS             OSC          │  OSA          │  OSG     │  Vol-         │   │  CapLock │  Left    │  Down    │  Right   │ Backspace│
             &sk LSHFT       &sk LCTRL       &sk LALT        &sk LGUI   &kp C_VOL_DN        &kp CAPS   &kp LEFT   &kp DOWN   &kp RIGHT  &kp BSPC
         //├───────────────┼───────────────┼───────────────┼──────────┼───────────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  SelWordLt    │  SelWordRt    │  BACK         │   FWD    │  Play/Pause   │   │          │  PageDown│  PageUp  │  CtlLayer│  Enter   │
-          &kp LS(LC(LEFT)) &kp LS(LC(RIGHT)) &kp LA(LEFT) &kp LA(RIGHT) &kp C_PP           &none      &kp PG_DN  &kp PG_UP  &mo CTL    &kp ENTER
+        //│  SelWordLt    │  SelWordRt    │  BACK         │   FWD    │  Play/Pause   │   │          │  PageDown│  PageUp  │  TogCtl  │  Enter   │
+          &kp LS(LC(LEFT)) &kp LS(LC(RIGHT)) &kp LA(LEFT) &kp LA(RIGHT) &kp C_PP           &none      &kp PG_DN  &kp PG_UP  &tog CTL   &kp ENTER
         //╰───────────────┴───────────────┴───────────────┼──────────┼───────────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                                             &trans     &trans              &trans     &trans
         //                                                ╰──────────┴───────────────╯   ╰──────────┴──────────╯
@@ -132,8 +142,8 @@
         //│BOOTLOADER│          │          │          │          │   │            │            │            │            │            │
             &none      &none      &none      &none      &none          &none        &none        &none        &none        &none
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├────────────┼────────────┼────────────┼────────────┼────────────┤
-        //│          │          │          │          │          │   │            │            │            │            │            │
-            &none      &none      &none      &none      &none          &none        &none        &none        &none        &none
+        //│  TogCtl  │          │          │          │          │   │            │            │            │            │            │
+            &TogCtl    &none      &none      &none      &none          &none        &none        &none        &none        &none
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├────────────┼────────────┼────────────┴────────────┴────────────╯
                                              &none      &none          &none        &none
         //                                 ╰──────────┴──────────╯   ╰────────────┴────────────╯
